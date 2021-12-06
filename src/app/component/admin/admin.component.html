@@ -1,0 +1,87 @@
+<div class="container">
+    <h2 class="text-center">Gestion des livres</h2>
+    <form class="bordure"[formGroup]="excursionForm" (ngSubmit)="onAjouterExcursion()">
+        <label> Titre:</label>
+        <input type="text" class="form-control" formControlName="lib">
+
+
+        <label>Photo</label>
+        <input type="text" class="form-control" formControlName="photo">
+
+        <label> Prix:</label>
+        <input type="text" class="form-control" formControlName="prix">
+        <label> Prix Avant:</label>
+        <input type="text" class="form-control" formControlName="prixAvant" >
+        <label> Duree</label>
+        <input type="text" class="form-control" formControlName="duree"> 
+    <br>
+            <label>
+            <input type="checkbox" formControlName="promo"> Promotion
+        </label>
+        <label>
+            <input type="checkbox" formControlName="nouv"> Nouveaux
+        </label> <label>
+            <input type="checkbox"formControlName="coupDeCoeur"> Coup de Coeur
+        </label>
+        <br>
+        <label> Date de Départ</label>
+        <input type="date" class="form-control" formControlName="dateDep"> 
+        <label> Date de Payment</label>
+        <input type="date" class="form-control" formControlName="datePay"> 
+        <label> Description</label>
+        <input type="text" class="form-control"formControlName="description"> 
+        <br>
+        <button class="btn btn-dark"> Ajouter</button>
+        <input type="reset" class="btn btn-secondary"  value="Effacer" /> 
+    </form>
+    <h4>Liste des livres</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th> Id</th>
+                <th>Titre</th>
+                <th>Photo</th>
+                <th>Prix</th>
+                <th>PrixAvant</th>
+                <th>Durée</th>
+                <th>Promo</th>
+                <th>Nouveau</th>
+                <th>Coup de Coeur</th>
+                <th>Date de Départ</th>
+                <th>Date de Payment</th>
+                <th>Commentaire</th>
+                <th>Description</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>            
+        </thead>
+        <tbody>
+<tr *ngFor="let e of lesexcursions">
+    <td>{{e.id}}</td>
+    <td>{{e.lib}}</td>
+    <td><img src="e.photo" alt="image">   </td>
+    <td>{{e.prix|number: '.3'}}TND</td>
+    <td>{{e.prixAvant}}</td>
+    <td>{{e.duree}}</td>
+    <td><input type="checkbox" [checked]="e.promo" disabled>En Promotion</td>
+    <td><input type="checkbox" [checked]="e.nouv" disabled>Noueaux</td>
+    <td><input type="checkbox" [checked]="e.coupDeCoeur" disabled>Coup de Coeur</td>
+    <td>{{e.dateDep}}</td>
+    <td>{{e.datePay}}</td>
+    
+    <td ><span *ngFor="let t of e.commentaire">{{t.come}}</span></td>
+    <td>{{e.description}}</td>
+<td><input type="button" class="btn btn-warning" (click)= "onModifierExcursion(e.id)" value="Modifier"></td>
+<td><input type="button" class="btn btn-info" (click)= "onSupprimerExcursion(e.id)" value="Supprimer"></td>
+
+
+
+</tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+

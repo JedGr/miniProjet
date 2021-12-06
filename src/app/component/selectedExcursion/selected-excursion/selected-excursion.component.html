@@ -1,0 +1,40 @@
+<div class="container py-4 my-4 mx-auto d-flex flex-column">
+    <div class="header">
+        <div class="row r1">
+            <div class="col-md-9 abc">
+                <h1>{{lesexcursions[identifiant-1].lib}}</h1>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container-body mt-4">
+        <div class="row r3">
+            <div class="col-md-5 p-0 klo">
+                <ul class="card" style="background-color:#ccc;font-style: oblique;">
+                    <li> La durée est : {{lesexcursions[identifiant-1].duree}}</li>
+                    <li>La date de départ est le  : {{lesexcursions[identifiant-1].dateDep}}</li>
+                    <li>La date de payment est le  :{{lesexcursions[identifiant-1].datePay}} </li>
+                   <li> {{lesexcursions[identifiant-1].description}}</li>
+                    <li>Prix  : {{lesexcursions[identifiant-1].prix}} TND </li>
+                </ul>
+            </div>
+            <div class="col-md-7"> <img [src]="lesexcursions[identifiant-1].photo" width="90%" height="95%"> </div>
+        </div>
+    </div>
+    <div class="footer d-flex flex-column mt-5">
+        <div class="row r4">
+           
+            <div class="col-md-2 myt ">
+                <button class=" btn btn-link" (click)="affiche()">Commentaire</button>            
+            </div>
+            <div class="col-md-2 myt " style="padding-left: 47%;"><button type="button" class="btn btn-outline-warning"><a [routerLink]="['/inscription']">Participer</a></button></div>
+        </div>
+<div *ngFor="let tab of lesexcursions[identifiant-1].commentaire">
+        <jed-commentaire *ngIf="display" [com]="tab"></jed-commentaire>
+        </div>
+       
+    </div>
+</div>
+<div style="text-align: center;">
+<button  (click)="onListe()" class="btn btn-primary">Retour a la Liste
+</button> </div>

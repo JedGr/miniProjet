@@ -1,0 +1,33 @@
+
+
+<h2 style="text-align: center;">Liste des Excursions</h2>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let t of lesexcursions" >
+            <div class="card text-center">
+                <div class="card-header text-center">{{t.lib}}</div>
+                <div class="card-body" >
+                    <span *ngIf="t.nouv" class=" btn-success">Nouveau</span><br/>
+                   
+                    <img class="image" src="{{t.photo}}" style="height: 100%;width:100%;"><br/>
+                    <span>La Durée : {{t.duree}}</span><br/>
+                    <span *ngIf="t.promo" class=" btn-danger">En Promotion</span>
+                    
+                    <div>
+                  
+                  
+                  
+                        <div class="card-footer "   >
+                        <a class="btn btn-primary" [routerLink]="['/liste', t.id]" > 
+                          <i class="fas fa-pencil-alt" ></i>Plus de Détails</a>
+                    </div> 
+
+    
+</div>
+</div>
+</div>
+</div>
+    </div>
+   
